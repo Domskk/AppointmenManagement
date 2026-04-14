@@ -1,0 +1,16 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "controllers/",
+            "App\\Models\\": "models/",
+            "App\\Config\\": "config/",
+            "App\\Middleware\\": "middleware/"
+        },
+        "files": [
+            "function.php"
+        ]
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
