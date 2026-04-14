@@ -1,4 +1,14 @@
 <?php
+use App\Config\Connection;
+use App\Models\Response;
+use App\Controllers\AuthController;
+use App\Controllers\UserController;
+use App\Controllers\ServiceController;
+use App\Controllers\SlotController;
+use App\Controllers\AppointmentController;
+use App\Controllers\AdminController;
+use App\Controllers\ReportController;
+
 
 $conn = (new Connection())->connect();
 $method = $_SERVER['REQUEST_METHOD'];
@@ -16,7 +26,7 @@ $id       = $parts[2] ?? null;
 
 switch ($resource) {
 
-    // ====================== AUTH ======================
+    // auth
     case 'auth':
         if ($method === 'POST') {
             $data = json_decode(file_get_contents("php://input"), true) ?? [];
@@ -33,7 +43,7 @@ switch ($resource) {
         }
         break;
 
-    // ====================== USERS ======================
+    // users
     case 'users':
         if ($sub === 'profile') {
             if ($method === 'GET') {
@@ -47,8 +57,8 @@ switch ($resource) {
             Response::error('Endpoint not found', 404);
         }
         break;
-
-    // ====================== SERVICES ======================
+    
+    // services
     case 'services':
         if ($method === 'GET') {
             ServiceController::getAll($conn);
@@ -59,7 +69,6 @@ switch ($resource) {
         }
         break;
 
-    // ====================== SLOTS ======================
     case 'slots':
         if ($method === 'POST') {
             SlotController::create($conn);
@@ -68,7 +77,6 @@ switch ($resource) {
         }
         break;
 
-    // ====================== APPOINTMENTS ======================
     case 'appointments':
         if ($method === 'POST') {
             AppointmentController::create($conn);
@@ -79,7 +87,6 @@ switch ($resource) {
         }
         break;
 
-    // ====================== ADMIN ======================
     case 'admin':
         if ($method === 'GET') {
             if ($sub === 'appointments') {
@@ -94,7 +101,6 @@ switch ($resource) {
         }
         break;
 
-    // ====================== REPORTS ======================
     case 'reports':
         if ($method === 'GET') {
             if ($sub === 'wait-time') {
@@ -109,7 +115,6 @@ switch ($resource) {
         }
         break;
 
-    // ====================== DEFAULT ======================
     default:
         Response::error('Endpoint not found', 404);
         break;

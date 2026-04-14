@@ -37,7 +37,6 @@ class ComposerStaticInit1bf81dd43be3356cae4bcf66d71e480c
             'App\\Models\\' => 11,
             'App\\Middleware\\' => 15,
             'App\\Controllers\\' => 16,
-            'App\\Config\\' => 11,
         ),
     );
 
@@ -78,13 +77,10 @@ class ComposerStaticInit1bf81dd43be3356cae4bcf66d71e480c
         array (
             0 => __DIR__ . '/../..' . '/controllers',
         ),
-        'App\\Config\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/config',
-        ),
     );
 
     public static $classMap = array (
+        'App\\Config\\Connection' => __DIR__ . '/../..' . '/config/database.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/PhpToken.php',

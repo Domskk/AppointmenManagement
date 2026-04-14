@@ -1,5 +1,9 @@
 <?php
+namespace App\Controllers;
 
+use PDO;
+use App\Models\Response;
+use App\Middleware\AuthMiddleware;
 class SlotController {
 
     // POST /api/slots (Admin only)

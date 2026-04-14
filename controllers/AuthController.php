@@ -1,5 +1,12 @@
 <?php
+namespace App\Controllers;
 
+use PDO;
+use PDOException;
+use Exception;
+use App\Models\JWT;
+use App\Models\Response;
+use App\Models\Encryption;
 class AuthController {
 
     // POST /api/auth/register

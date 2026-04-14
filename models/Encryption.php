@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 class Encryption {
 
     private const METHOD  = 'aes-256-gcm';

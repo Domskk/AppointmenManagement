@@ -1,8 +1,12 @@
 <?php
+namespace App\Controllers;
 
+use PDO;
+use App\Models\Response;
+use App\Models\Encryption;
+use App\Middleware\AuthMiddleware;
 class AppointmentController {
 
-    // POST /api/appointments
     public static function create(PDO $conn): void {
         $user = AuthMiddleware::checkAuth();
         $data = request_body();
@@ -46,7 +50,6 @@ class AppointmentController {
             $notesEncrypted
         ], 'one');
 
-        // Update slot capacity (no return value needed)
         execute($conn, 'CALL updateSlotCapacity(?)', [$slotId], 'none');
 
         Response::success([

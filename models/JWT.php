@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 class JWT {
 
     public static function createToken(array $data): string {

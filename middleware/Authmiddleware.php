@@ -1,4 +1,9 @@
 <?php
+namespace App\Middleware;
+
+use App\Models\JWT;
+use App\Models\Response;
+
 class AuthMiddleware {
 
     public static function checkAuth(): array {

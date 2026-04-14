@@ -1,5 +1,10 @@
 <?php
+namespace App\Controllers;
 
+use PDO;
+use App\Models\Response;
+use App\Models\Encryption;
+use App\Middleware\AuthMiddleware;
 class UserController {
 
     // GET /api/users/profile

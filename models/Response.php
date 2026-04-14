@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 class Response {
 
     public static function success(mixed $data = null, string $message = 'Success'): void {

@@ -15,5 +15,4 @@ return array(
     'App\\Models\\' => array($baseDir . '/models'),
     'App\\Middleware\\' => array($baseDir . '/middleware'),
     'App\\Controllers\\' => array($baseDir . '/controllers'),
-    'App\\Config\\' => array($baseDir . '/config'),
 );

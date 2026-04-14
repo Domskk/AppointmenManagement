@@ -1,5 +1,9 @@
 <?php
+namespace App\Controllers;
 
+use PDO;
+use App\Models\Response;
+use App\Middleware\AuthMiddleware;
 class AdminController {
 
     // GET /api/admin/appointments
